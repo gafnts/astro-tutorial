@@ -15,7 +15,11 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 
 const happy = true;
 const finished = true;
-const goal = 2;
+const goal: number = 2;
+
+const skillColor = "purple";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <Layout
@@ -24,6 +28,7 @@ const goal = 2;
 	pubDate={new Date('August 08 2021')}
 	heroImage={AboutHeroImage}
 >
+
     <h2>... and my new Astro site!</h2>
 
     <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
@@ -39,7 +44,7 @@ const goal = 2;
 	</ul>
 	<p>My skills are:</p>
 	<ol>
-	{skills.map((skill) => <li>{skill}</li>)}
+	{skills.map((skill) => <li class="skill">{skill}</li>)}
 	</ol>
 	
 	{happy && <p>I am happy to be learning Astro!</p>}
@@ -48,3 +53,11 @@ const goal = 2;
 
 	{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is to finish in {goal} days.</p>}
 </Layout>
+
+<style define:vars={{skillColor, fontWeight, textCase}}>
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>
